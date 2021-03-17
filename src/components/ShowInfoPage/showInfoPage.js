@@ -33,7 +33,7 @@ export default function ShowInfoPage(props) {
             <Row>
                 <Col md="4">
                     <img
-                        src={image.medium} width="100%"
+                        src={image.medium} width="100%" alt="Info"
                     />
                 </Col>
                 <Col md="8">
@@ -41,11 +41,11 @@ export default function ShowInfoPage(props) {
                     </div>
                     <ul>
                         <li>Status : {movie.status ||"NA"}</li>
-                        <li>Popularity : {movie.popularity != undefined ? movie.popularity : 'NA'}</li>
+                        <li>Popularity : {movie.popularity !== undefined ? movie.popularity : 'NA'}</li>
                         <li>Language : {movie.language}</li>
                         <li>
                             Generes: {
-                                movie.genres != undefined && movie.genres.length > 0 ? movie.genres.map(el => { 
+                                movie.genres !== undefined && movie.genres.length > 0 ? movie.genres.map(el => { 
                                     return <span className="ml-2">{el}</span>
                                 }) : 'NA'}
                         </li>

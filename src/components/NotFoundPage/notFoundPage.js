@@ -4,7 +4,7 @@ export default function NotFoundPage() {
  
   return (
     <div>
-           <img src={NotFound} width="100%" /> 
+           <img src={NotFound} width="100%" alt="Not found"/> 
     </div>
   )
 }

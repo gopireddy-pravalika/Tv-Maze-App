@@ -24,7 +24,7 @@ export default function SearchResult(props) {
           setIsloading(true);
           let data= res.data
            let filterdData=data.filter(element=>
-            ( element.show.image != null ||  element.show.image != undefined));
+            ( element.show.image !== null ||  element.show.image !== undefined));
             setSearchResult(filterdData);
         })
         .catch(err=>{
