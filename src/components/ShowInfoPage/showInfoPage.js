@@ -4,14 +4,16 @@ import { Container, Row, Col } from "react-bootstrap";
 
 //Displays the detailed information of show
 export default function ShowInfoPage(props) {
+    let id=props.match.params.id;
     const [movie, setMovie] = useState({});
     const [image, setImage] = useState({});
     const [rating, setRating] = useState({});
     const [loading,setIsloading ]=useState(false)
     useEffect(() => {
-        //fetches data based on show id 
+        //fetches data based on show id \
+        const url=`http://api.tvmaze.com/shows/${id}?embed[]=episodes&embed[]=cast`
         Axios.get(
-            `http://api.tvmaze.com/shows/${props.match.params.id}?embed[]=episodes&embed[]=cast`
+           url
         )
             .then(res => {
                 setIsloading(true)
@@ -41,11 +43,11 @@ export default function ShowInfoPage(props) {
                     </div>
                     <ul>
                         <li>Status : {movie.status ||"NA"}</li>
-                        <li>Popularity : {movie.popularity !== undefined ? movie.popularity : 'NA'}</li>
+                        <li>Popularity : {movie.popularity != undefined ? movie.popularity : 'NA'}</li>
                         <li>Language : {movie.language}</li>
                         <li>
                             Generes: {
-                                movie.genres !== undefined && movie.genres.length > 0 ? movie.genres.map(el => { 
+                                movie.genres != undefined && movie.genres.length > 0 ? movie.genres.map(el => { 
                                     return <span className="ml-2">{el}</span>
                                 }) : 'NA'}
                         </li>

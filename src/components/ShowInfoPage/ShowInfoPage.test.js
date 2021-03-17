@@ -1,10 +1,12 @@
 import React from "react";
 import { render, act } from "@testing-library/react";
-import ShowInfoPage from "../components/ShowInfoPage/showInfoPage";
-import ShowInfo from "./testConstants/showInfoMock";
+import ShowInfoPage from "./showInfoPage";
+import ShowInfo from "../../test/testConstants/showInfoMock";
 import ReactDOM from "react-dom";
 import { Route, MemoryRouter } from "react-router-dom";
-describe("Details Page ", () => {
+
+
+ describe("showinfo Page ", () => {
   let container = null;
   beforeEach(() => {
     // setup a DOM element as a render target
@@ -56,3 +58,4 @@ describe("Details Page ", () => {
     global.fetch.mockRestore();
   });
 });
+ 
